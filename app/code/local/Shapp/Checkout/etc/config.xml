@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Shapp_Checkout>
+            <version>0.0.1</version>
+        </Shapp_Checkout>
+    </modules>
+    <global>
+        <blocks>
+            <checkout>
+                <rewrite>
+                    <onepage>Shapp_Checkout_Block_Onepage</onepage><!-- rewrite the onepage chackout block -->
+                </rewrite>
+            </checkout>
+        </blocks>
+        <helpers>
+            <shapp_checkout>
+                <class>Shapp_Checkout_Helper</class>
+            </shapp_checkout>
+        </helpers>
+        <models>
+            <shapp_checkout>
+                <class>Shapp_Checkout_Model</class>
+            </shapp_checkout>
+        </models>
+    </global>
+    <default>
+        <checkout>
+            <options>
+                <hide_shipping>1</hide_shipping>
+                <default_shipping>tablerate_bestway</default_shipping>
+            </options>
+        </checkout>
+    </default>
+    <frontend>
+        <routers>
+            <checkout>
+                <args>
+                    <modules>
+                        <Shapp_Checkout before="Mage_Checkout">Shapp_Checkout</Shapp_Checkout>
+                    </modules>
+                </args>
+            </checkout>
+        </routers>
+        <translate>
+            <modules>
+                <Shapp_Checkout>
+                    <files>
+                        <default>Shapp_Checkout.csv</default>
+                    </files>
+                </Shapp_Checkout>
+            </modules>
+        </translate>
+    </frontend>
+</config>
